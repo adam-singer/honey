@@ -1,7 +1,7 @@
 honey
 =====
 
-A smooth little library.
+A smooth little dart library.
 
 Honey uses the MIT license as described in the LICENSE file.
 

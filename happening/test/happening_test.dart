@@ -5,7 +5,7 @@
 #import('../happening.dart');
 
 void main() {
-	testHappening();
+  testHappening();
 }
 
 void testHappening() { 

@@ -5,12 +5,11 @@ typedef void Observer<T>(T context);
 
 /**
  * A [Happening] is something that can be [observe]d and can [happen].  It is
- * synonymous to an event.  It may optionally carry contextual information 
- * of type [T].
+ * synonymous to an event.  It may optionally carry contextual information of type [T].
  * 
  * One or more [Observer]s may [observe] a [Happening], and they may also
  * decide at any time to [ignore] the [Happening].  When a [Happening] [happen]s,
- * all [Observer]s that are currently observing will be called with the context
+ * all [Observer]s that are currently observing will be called with the context (may be null).
  * 
  * It it important that user code call [observe] and [ignore] with the same reference to 
  * their [Observer] function.  This is a (hopefully) temporary workaround for the fact that

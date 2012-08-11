@@ -1,3 +1,6 @@
+// Copyright (c) Ross Smith.
+// Use of this source code is governed by an MIT license that can be found in the LICENSE file.
+
 #library('honey:happening:test');
 
 #import('file:///c:/dart/dart-sdk/lib/unittest/unittest.dart');

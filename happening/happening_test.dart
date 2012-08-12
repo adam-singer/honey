@@ -14,10 +14,10 @@ void testHappening() {
     test('testObserveIgnoreSuccess', testObserveIgnoreSuccess);  
     test('testIgnoreUnobservedReturnsFalse', testIgnoreUnobservedReturnsFalse);
     test('testObserveTwiceReturnsFalse', testObserveTwiceReturnsFalse);
-    test('testSingleObservationSingleHappening', testSingleObservationSingleHappening);
-    test('testSingleObservationMultipleHappenings', testSingleObservationMultipleHappenings);
-    test('testMultipleObservationsSingleHappening', testMultipleObservationsSingleHappening);
-    test('testMultipleObservationsMultipleHappenings', testMultipleObservationsMultipleHappenings);
+    test('testSingleObserverSingleHappening', testSingleObserverSingleHappening);
+    test('testSingleObserverMultipleHappenings', testSingleObserverMultipleHappenings);
+    test('testMultipleObserversSingleHappening', testMultipleObserversSingleHappening);
+    test('testMultipleObserversMultipleHappenings', testMultipleObserversMultipleHappenings);
   });
 }
 
@@ -41,7 +41,7 @@ void testObserveTwiceReturnsFalse() {
   expect(happeningUUT.observe(observer), isFalse);
 }
 
-void testSingleObservationSingleHappening() {  
+void testSingleObserverSingleHappening() {  
   int observationCount = 0;
   Observer<String> observer = (value) {
     observationCount++;
@@ -53,7 +53,7 @@ void testSingleObservationSingleHappening() {
   expect(observationCount, equals(1));
 }
 
-void testSingleObservationMultipleHappenings() {
+void testSingleObserverMultipleHappenings() {
   int observationCount = 0;
   Observer<String> observer = (value) {
     observationCount++;
@@ -69,7 +69,7 @@ void testSingleObservationMultipleHappenings() {
   expect(observationCount, equals(3));
 }
 
-void testMultipleObservationsSingleHappening() {
+void testMultipleObserversSingleHappening() {
   int observation1Count = 0;
   int observation2Count = 0;
   int observation3Count = 0;
@@ -98,7 +98,7 @@ void testMultipleObservationsSingleHappening() {
   expect(happeningUUT.ignore(observer3), isTrue);
 }
 
-void testMultipleObservationsMultipleHappenings() {
+void testMultipleObserversMultipleHappenings() {
   int observation1Count = 0;
   int observation2Count = 0;
   int observation3Count = 0;

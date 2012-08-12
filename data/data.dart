@@ -162,6 +162,8 @@ class Data implements Hashable, Map<String, Dynamic> {
   
   String toJson() => JSON.stringify(_properties);
   
+  // TODO: have a look at the new JSON.printOn() method, should help avoid string allocations
+  
   void _parseList(List list) {
     for(int i = 0; i < list.length; i++) {
       var item = list[i];

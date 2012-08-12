@@ -22,47 +22,47 @@ void testHappening() {
 }
 
 void testObserveIgnoreSuccess() {  
-  Observer observation = (value) {};
+  Observer observer = (value) {};
   Happening happeningUUT = new Happening();  
-  expect(happeningUUT.observe(observation), isTrue);
-  expect(happeningUUT.ignore(observation), isTrue);  
+  expect(happeningUUT.observe(observer), isTrue);
+  expect(happeningUUT.ignore(observer), isTrue);  
 }
 
 void testIgnoreUnobservedReturnsFalse() {
-  Observer observation = (value) {};  
+  Observer observer = (value) {};  
   Happening happeningUUT = new Happening(); 
-  expect(happeningUUT.ignore(observation), isFalse);
+  expect(happeningUUT.ignore(observer), isFalse);
 }
 
 void testObserveTwiceReturnsFalse() {
-  Observer observation = (value) {};
+  Observer observer = (value) {};
   Happening happeningUUT = new Happening();  
-  expect(happeningUUT.observe(observation), isTrue);
-  expect(happeningUUT.observe(observation), isFalse);
+  expect(happeningUUT.observe(observer), isTrue);
+  expect(happeningUUT.observe(observer), isFalse);
 }
 
 void testSingleObservationSingleHappening() {  
   int observationCount = 0;
-  Observer<String> observation = (value) {
+  Observer<String> observer = (value) {
     observationCount++;
     expect(value, equals("snarf"));
   };  
   Happening happeningUUT = new Happening();
-  happeningUUT.observe(observation);
+  happeningUUT.observe(observer);
   happeningUUT.happen("snarf");  
   expect(observationCount, equals(1));
 }
 
 void testSingleObservationMultipleHappenings() {
   int observationCount = 0;
-  Observer<String> observation = (value) {
+  Observer<String> observer = (value) {
     observationCount++;
     if(observationCount == 1) expect(value, equals("snarf"));
     if(observationCount == 2) expect(value, equals("woof"));
     if(observationCount == 3) expect(value, equals("yapp"));    
   };  
   Happening happeningUUT = new Happening();
-  happeningUUT.observe(observation);
+  happeningUUT.observe(observer);
   happeningUUT.happen("snarf");  
   happeningUUT.happen("woof");
   happeningUUT.happen("yapp");
@@ -73,64 +73,64 @@ void testMultipleObservationsSingleHappening() {
   int observation1Count = 0;
   int observation2Count = 0;
   int observation3Count = 0;
-  Observer<String> observation1 = (value) {
+  Observer<String> observer1 = (value) {
     observation1Count++;
     expect(value, equals("snarf"));
   };
-  Observer<String> observation2 = (value) {
+  Observer<String> observer2 = (value) {
     observation2Count++;
     expect(value, equals("snarf"));
   };
-  Observer<String> observation3 = (value) {
+  Observer<String> observer3 = (value) {
     observation3Count++;
     expect(value, equals("snarf"));
   };  
   Happening happeningUUT = new Happening();
-  happeningUUT.observe(observation1);
-  happeningUUT.observe(observation2);
-  happeningUUT.observe(observation3);
+  happeningUUT.observe(observer1);
+  happeningUUT.observe(observer2);
+  happeningUUT.observe(observer3);
   happeningUUT.happen("snarf");
   expect(observation1Count, equals(1));
   expect(observation2Count, equals(1));
   expect(observation3Count, equals(1));
-  expect(happeningUUT.ignore(observation1), isTrue); 
-  expect(happeningUUT.ignore(observation2), isTrue); 
-  expect(happeningUUT.ignore(observation3), isTrue);
+  expect(happeningUUT.ignore(observer1), isTrue); 
+  expect(happeningUUT.ignore(observer2), isTrue); 
+  expect(happeningUUT.ignore(observer3), isTrue);
 }
 
 void testMultipleObservationsMultipleHappenings() {
   int observation1Count = 0;
   int observation2Count = 0;
   int observation3Count = 0;
-  Observer<String> observation1 = (value) {
+  Observer<String> observer1 = (value) {
     observation1Count++;
     if(observation1Count == 1) expect(value, equals("snarf"));
     if(observation1Count == 2) expect(value, equals("woof"));
     if(observation1Count == 3) expect(value, equals("yapp"));
   };
-  Observer<String> observation2 = (value) {
+  Observer<String> observer2 = (value) {
     observation2Count++;
     if(observation2Count == 1) expect(value, equals("snarf"));
     if(observation2Count == 2) expect(value, equals("woof"));
     if(observation2Count == 3) expect(value, equals("yapp"));
   };
-  Observer<String> observation3 = (value) {
+  Observer<String> observer3 = (value) {
     observation3Count++;
     if(observation3Count == 1) expect(value, equals("snarf"));
     if(observation3Count == 2) expect(value, equals("woof"));
     if(observation3Count == 3) expect(value, equals("yapp"));
   };  
   Happening happeningUUT = new Happening();
-  happeningUUT.observe(observation1);
-  happeningUUT.observe(observation2);
-  happeningUUT.observe(observation3);
+  happeningUUT.observe(observer1);
+  happeningUUT.observe(observer2);
+  happeningUUT.observe(observer3);
   happeningUUT.happen("snarf");  
   happeningUUT.happen("woof");
   happeningUUT.happen("yapp");
   expect(observation1Count, equals(3));
   expect(observation2Count, equals(3));
   expect(observation3Count, equals(3));
-  expect(happeningUUT.ignore(observation1), isTrue); 
-  expect(happeningUUT.ignore(observation2), isTrue); 
-  expect(happeningUUT.ignore(observation3), isTrue);
+  expect(happeningUUT.ignore(observer1), isTrue); 
+  expect(happeningUUT.ignore(observer2), isTrue); 
+  expect(happeningUUT.ignore(observer3), isTrue);
 }

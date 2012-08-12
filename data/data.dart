@@ -4,6 +4,10 @@
 #import('dart:json');
 #import('../happening/happening.dart');
 
+/**
+ * An observable [Data] object that is essentially a property bag.  [Data] can
+ * be serialized to and from JSON, and properties may be added or removed at any time.  
+ */
 class Data implements Hashable, Map<String, Dynamic> {
   
   Map<String, Dynamic> _properties;

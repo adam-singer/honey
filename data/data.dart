@@ -13,7 +13,7 @@ class Data implements Hashable, Map<String, Dynamic> {
   final Happening<String> changing;    
   final Happening<String> changed;    
   final Happening<String> removing;
-  final Happening<Dynamic> removed;
+  final Happening<String> removed;
   final Happening resetting;
   final Happening reset;
   
@@ -25,7 +25,7 @@ class Data implements Hashable, Map<String, Dynamic> {
   , changing = new Happening<String>()
   , changed = new Happening<String>() 
   , removing = new Happening<String>()
-  , removed = new Happening<Dynamic>()
+  , removed = new Happening<String>()
   , resetting = new Happening()
   , reset = new Happening() {
     _parseMap(_properties);
@@ -130,7 +130,7 @@ class Data implements Hashable, Map<String, Dynamic> {
   remove(key) {
     removing.happen(key);
     final value = _properties.remove(key);
-    removed.happen(value);
+    removed.happen(key);
     return value;
   }
   

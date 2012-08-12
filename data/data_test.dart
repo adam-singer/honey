@@ -315,9 +315,50 @@ void testMapPutIfAbsent() {
 }
 
 void testMapRemove() {
-  // TODO:
+  Data data = new Data();
+  int removingCount = 0;
+  int removedCount = 0;
+  data.removing.observe((value) {
+    removingCount++;
+    if(removingCount == 1) expect(value, equals("a"));
+    if(removingCount == 2) expect(value, equals("b"));
+  });  
+  data.removed.observe((value) {
+    removedCount++;
+    if(removedCount == 1) expect(value, equals("a"));
+    if(removedCount == 2) expect(value, equals("b"));
+  });  
+  data['a'] = 12;
+  data['b'] = 'snarf'; 
+  expect(data['a'], equals(12));
+  expect(data['b'], equals('snarf'));  
+  expect(removingCount, equals(0));
+  expect(removedCount, equals(0));
+  data.remove('a');
+  data.remove('b');
+  expect(data.containsKey('a'), isFalse);
+  expect(data.containsKey('b'), isFalse);
+  expect(data.isEmpty(), isTrue);
+  expect(removingCount, equals(2));
+  expect(removedCount, equals(2));
 }
 
 void testMapClear() {
-  // TODO:
+  Data data = new Data();
+  int resettingCount = 0;
+  int resetCount = 0;
+  data.resetting.observe((ignored) => resettingCount++);  
+  data.reset.observe((ignored) => resetCount++);
+  data['a'] = 12;
+  data['b'] = 'snarf'; 
+  expect(data['a'], equals(12));
+  expect(data['b'], equals('snarf'));  
+  expect(resettingCount, equals(0));
+  expect(resetCount, equals(0));
+  data.clear();
+  expect(data.containsKey('a'), isFalse);
+  expect(data.containsKey('b'), isFalse);
+  expect(data.isEmpty(), isTrue);
+  expect(resettingCount, equals(1));
+  expect(resetCount, equals(1));
 }

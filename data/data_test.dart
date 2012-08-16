@@ -216,7 +216,7 @@ void testEmptyDataNotEquals() {
   Data y = new Data();
   Expect.notEquals(x, y);
   // TODO: why does the following not work? seems a bug in unittest...
-  //expect(x, isNot(equals(y)));
+  //expect(y, isNot(equals(x)));
 }
 
 void testMapAdd() {

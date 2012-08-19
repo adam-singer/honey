@@ -6,7 +6,8 @@
 
 /**
  * An observable [Data] object that is essentially a property bag.  [Data] can
- * be serialized to and from JSON, and properties may be added or removed at any time.  
+ * be serialized to and from JSON, and properties may be added or removed at
+ * any time.  
  */
 class Data implements Hashable, Map<String, Dynamic> {
   
@@ -35,13 +36,14 @@ class Data implements Hashable, Map<String, Dynamic> {
     _parseMap(_properties);
   }
       
-  // TODO: per spec this will have builtin checks that other is not null/this
+  // TODO: per spec this will have builtin checks that other is not null
   bool operator ==(Object other) {
     if(this === other) return true;
     if(null === other || !(other is Data)) return false;    
     final Data otherData = other;
     if(length != otherData.length) return false;
-    if(length == 0) return false; // two empty and different Data objects are not equal  
+    // two empty and different Data objects are not equal
+    if(length == 0) return false;  
     // TODO: I don't like that this allocates a new Collection
     // TODO: we should probably use forEach(f) even though we can't break the loop... :(
     // as suggested by Christopher Wright, we could throw an Exception to break !?!

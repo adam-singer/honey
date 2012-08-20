@@ -22,10 +22,25 @@
  */
 class Rectangle {
   
-  num left, top, width, height;
+  /** Gets or sets the x-coordinate of this [Rectangle]'s left edge. */
+  num left;
   
+  /** Gets or sets the y-coordinate of this [Rectangle]'s top edge. */
+  num top;
+  
+  /** Gets or sets the width of this [Rectangle]. */
+  num width;
+  
+  /** Gets or sets the height of this [Rectangle]. */
+  num height;
+  
+  /** Gets or sets the x-coordinate of this [Rectangle]'s right edge. */
   num get right() => left + width;
+      set right(num value) { width = value - left; }
+  
+  /** Gets or sets the y-coordinate of this [Rectangle]'s bottom edge. */
   num get bottom() => top + height;
+      set bottom(num value) { height = value - top; }
   
   Rectangle(this.left, this.top, this.width, this.height);
   
@@ -36,6 +51,10 @@ class Rectangle {
         && width == other.width && height == other.height;
   }
   
+  /**
+   * Returns [:true:] if the given [other] [Rectangle] is entirely contained
+   * within this [Rectangle]; otherwise it returns [:false:].
+   */
   bool contains(Rectangle other) => 
       (left <= other.left) && (right >= other.right) && 
       (top <= other.top) && (bottom >= other.bottom);
@@ -47,13 +66,21 @@ class Rectangle {
     height += h * 2;
   }
   
+  /**
+   * Returns [:true:] if this [Rectangle] and the given [other] intersect;
+   * otherwise it returns [:false:].
+   */
   bool intersects(Rectangle other) => 
       (right > other.left) && (left < other.right) && 
       (bottom > other.top) && (top < other.bottom);    
       
-  void offset(num x, num y) {
-    left += x;
-    top += y;
+  /**
+   * Translates this [Rectangle] the given [offsetX] along the positive x-axis
+   * and the given [offsetY] along the positive y-axis.
+   */
+  void translate(num offsetX, num offsetY) {
+    left += offsetX;
+    top += offsetY;
   }
   
   String toString() => "rectangle($left,$top,$width,$height)";

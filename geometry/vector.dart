@@ -4,10 +4,10 @@
  */
 class Vector2 {
   
-  /** The x-component of the vector. */
+  /** Ges or sets the x-component of the vector. */
   num x;
   
-  /** The y-component of the vector. */
+  /** Gets or sets the y-component of the vector. */
   num y;
   
   /** Calculates the length of the vector. */

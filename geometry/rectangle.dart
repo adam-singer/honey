@@ -42,6 +42,10 @@ class Rectangle {
   num get bottom() => top + height;
       set bottom(num value) { height = value - top; }
   
+  /** 
+   * Constructs a new [Rectangle] with the given [top]-[left] corner, [width],
+   * and [height].
+   */
   Rectangle(this.left, this.top, this.width, this.height);
   
   bool operator ==(Object other) {

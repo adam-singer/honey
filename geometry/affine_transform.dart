@@ -20,7 +20,7 @@
  *  [ m10 m11 m12 ]    or     [ shearY scaleY translateY ]
  *  [ 0   0   1   ]           [ 0      0      1          ]
  */
-class AffineTransform { 
+class AffineTransform implements Hashable { 
   
   num m00, m01, m10, m11, m02, m12;
   
@@ -139,6 +139,9 @@ class AffineTransform {
     return m00 == other.m00 && m01 == other.m01 && m02 == other.m02
         && m10 == other.m10 && m11 == other.m11 && m12 == other.m12;
   }
+  
+  int hashCode() => m00.hashCode() ^ m01.hashCode() ^ m02.hashCode()
+      ^ m10.hashCode() ^ m11.hashCode() ^ m12.hashCode();
   
   /**
    * Concatenates the given [other] [AffineTransform] to this [AffineTransform].

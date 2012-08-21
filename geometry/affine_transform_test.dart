@@ -319,19 +319,28 @@ void testEquals() {
   expect(y, equals(x));
   expect(y, equals(z));
   expect(x, equals(z));
+  expect(x.hashCode(), equals(y.hashCode()));
+  expect(y.hashCode(), equals(z.hashCode()));
+  expect(x.hashCode(), equals(z.hashCode()));
   var w = new AffineTransform(-1, 2, 3, 4, 5, 6);
   expect(x, isNot(equals(w)));
   expect(w, isNot(equals(x)));
+  expect(w.hashCode(), isNot(equals(x.hashCode())));
   w = new AffineTransform(1, -2, 3, 4, 5, 6);
   expect(w, isNot(equals(x)));
+  expect(w.hashCode(), isNot(equals(x.hashCode())));
   w = new AffineTransform(1, 2, -3, 4, 5, 6);
   expect(w, isNot(equals(x)));
+  expect(w.hashCode(), isNot(equals(x.hashCode())));
   w = new AffineTransform(1, 2, 3, -4, 5, 6);
   expect(w, isNot(equals(x)));
+  expect(w.hashCode(), isNot(equals(x.hashCode())));
   w = new AffineTransform(1, 2, 3, 4, -5, 6);
   expect(w, isNot(equals(x)));
+  expect(w.hashCode(), isNot(equals(x.hashCode())));
   w = new AffineTransform(1, 2, 3, 4, 5, -6);
   expect(w, isNot(equals(x)));
+  expect(w.hashCode(), isNot(equals(x.hashCode())));
 }
 
 void testToString() {

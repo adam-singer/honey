@@ -20,7 +20,7 @@
  * (0,0)-(200,200) and (200,200)-(400,400). Notice that they still barely 
  * touch at the corner. Also the length of each edge doubled from 100 to 200.
  */
-class Rectangle {
+class Rectangle implements Hashable {
   
   /** Gets or sets the x-coordinate of this [Rectangle]'s left edge. */
   num left;
@@ -54,6 +54,9 @@ class Rectangle {
     return left == other.left && top == other.top 
         && width == other.width && height == other.height;
   }
+  
+  int hashCode() => left.hashCode() ^ top.hashCode() 
+      ^ width.hashCode() ^ height.hashCode();
   
   /**
    * Returns [:true:] if the given [other] [Rectangle] is entirely contained

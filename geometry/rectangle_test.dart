@@ -96,15 +96,22 @@ void testRectangleEquals() {
   expect(y, equals(x));
   expect(y, equals(z));
   expect(x, equals(z));
+  expect(x.hashCode(), equals(y.hashCode()));
+  expect(y.hashCode(), equals(z.hashCode()));
+  expect(x.hashCode(), equals(z.hashCode()));
   var w = new Rectangle(-1, 2, 3, 4);
   expect(x, isNot(equals(w)));
   expect(w, isNot(equals(x)));
+  expect(w.hashCode(), isNot(equals(x.hashCode())));
   w = new Rectangle(1, -2, 3, 4);
   expect(w, isNot(equals(x)));
+  expect(w.hashCode(), isNot(equals(x.hashCode())));
   w = new Rectangle(1, 2, -3, 4);
   expect(w, isNot(equals(x)));
+  expect(w.hashCode(), isNot(equals(x.hashCode())));
   w = new Rectangle(1, 2, 3, -4);
   expect(w, isNot(equals(x)));
+  expect(w.hashCode(), isNot(equals(x.hashCode())));
 }
 
 void testRectangleToString() {

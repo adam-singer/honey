@@ -2,7 +2,7 @@
 /**
  * Defines a vector with 2 components.
  */
-class Vector2 {
+class Vector2 implements Hashable {
   
   /** Ges or sets the x-component of the vector. */
   num x;
@@ -32,6 +32,8 @@ class Vector2 {
     if(other is! Vector2) return false; 
     return x == other.x && y == other.y;
   }
+  
+  int hashCode() => x.hashCode() ^ y.hashCode();
   
   /** Calculates the distance between [this] vector and the given [other]. */
   num distance(Vector2 other)

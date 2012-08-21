@@ -59,6 +59,13 @@ class Rectangle {
       (left <= other.left) && (right >= other.right) && 
       (top <= other.top) && (bottom >= other.bottom);
   
+  /**
+   * Resizes this [Rectangle] so that it is [w] units larger on both the left
+   * and right side, and [h] units larger at both the top and bottom.  The
+   * resulting [Rectangle] has (left - w, top -h) as its upper-left corner,
+   * a width of (width + 2w) and a height of (height + 2h).  If negative values
+   * are suppoled, the [Rectangle] decreases accordingly.
+   */ 
   void inflate(num w, num h) {
     left -= w;
     top -= h;

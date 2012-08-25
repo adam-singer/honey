@@ -48,6 +48,8 @@ class Rectangle implements Hashable {
    */
   Rectangle(this.left, this.top, this.width, this.height);
   
+  // TODO: factory constructors for Intersection / Union
+  
   bool operator ==(Object other) {
     if(this === other) return true;
     if(other is! Rectangle) return false; 
@@ -67,11 +69,11 @@ class Rectangle implements Hashable {
       (top <= other.top) && (bottom >= other.bottom);
   
   /**
-   * Resizes this [Rectangle] so that it is [w] units larger on both the left
-   * and right side, and [h] units larger at both the top and bottom.  The
+   * Resizes this [Rectangle] so that it is [w] units larger on both the [left]
+   * and [right] side, and [h] units larger at both the [top] and [bottom].  The
    * resulting [Rectangle] has (left - w, top -h) as its upper-left corner,
-   * a width of (width + 2w) and a height of (height + 2h).  If negative values
-   * are suppoled, the [Rectangle] decreases accordingly.
+   * a [width] of (width + 2w) and a [height] of (height + 2h).  If negative 
+   * values are suppoled, the [Rectangle] decreases accordingly.
    */ 
   void inflate(num w, num h) {
     left -= w;

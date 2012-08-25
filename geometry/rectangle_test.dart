@@ -11,6 +11,8 @@ void testRectangle() {
     test('testRectanglesWithSubPixelOverlapIntersect', testRectanglesWithSubPixelOverlapIntersect);
     test('testRectanglesLeftRightTouchingDoNotIntersect', testRectanglesLeftRightTouchingDoNotIntersect);
     test('testRectanglesTopBottomTouchingDoNotIntersect', testRectanglesTopBottomTouchingDoNotIntersect);
+    test('testRectangleInflate', testRectangleInflate);
+    test('testRectangleTranslate', testRectangleTranslate);
     test('testRectangleEquals', testRectangleEquals);
     test('testRectangleToString', testRectangleToString);
   });
@@ -84,6 +86,28 @@ void testRectanglesTopBottomTouchingDoNotIntersect() {
   var rd2 = new Rectangle(0.0, 10.413, 10.0, 10.0);
   expect(rd1.intersects(rd2), isFalse);
   expect(rd2.intersects(rd1), isFalse);
+}
+
+void testRectangleInflate() {
+  var r = new Rectangle(1, 2, 3, 4);
+  r.inflate(2, 3.14);
+  expect(r.left, equals(-1));
+  expect(r.right, equals(6));
+  expect(r.width, equals(7));
+  expect(r.top, closeTo(-1.14, tolerance));
+  expect(r.bottom, closeTo(9.14, tolerance));
+  expect(r.height, closeTo(10.28, tolerance)); 
+}
+
+void testRectangleTranslate() {
+  var r = new Rectangle(1, 2, 3, 4);
+  r.translate(5, 3.14);
+  expect(r.left, equals(6));
+  expect(r.right, equals(9));
+  expect(r.width, equals(3));
+  expect(r.top, closeTo(5.14, tolerance));
+  expect(r.bottom, closeTo(9.14, tolerance));
+  expect(r.height, closeTo(4, tolerance)); 
 }
 
 void testRectangleEquals() {

@@ -293,7 +293,7 @@ class AffineTransform implements Hashable {
    * The coordinates are stored in the lists starting at the specified offset
    * in the order [x0, y0, x1, y1, ...]
    */
-  void transform(List<double> src, int srcOff, List<double> dst, int dstOff,
+  void transform(List<num> src, int srcOff, List<num> dst, int dstOff,
                  int count) {
     for(int i = 0; i < count; i++) {
       final x = src[srcOff++];

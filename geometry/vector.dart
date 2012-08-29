@@ -11,10 +11,10 @@ class Vector2 implements Hashable {
   num y;
   
   /** Calculates the length of the vector. */
-  num get length() => sqrt(x * x + y * y);
+  num get length => sqrt(x * x + y * y);
   
   /** Calculates the length of the vector squared. */
-  num get lengthSquared() => (x * x + y * y);
+  num get lengthSquared => (x * x + y * y);
   
   Vector2(this.x, this.y);
   

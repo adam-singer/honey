@@ -98,7 +98,7 @@ class Data implements Hashable, Map<String, Dynamic> {
     return result;
   }
   
-  int get length() => _properties.length;
+  int get length => _properties.length;
   operator [](key) => _properties[key];
   bool containsKey(key) => _properties.containsKey(key);
   bool containsValue(value) => _properties.containsValue(value);  

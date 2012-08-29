@@ -35,10 +35,10 @@ class AffineTransform implements Hashable {
    *  [ m10 m11 m12 ] = m00 * m11 - m01 * m10
    *  [ m20 m21 m22 ]    
    */
-  num get determinant() => m00 * m11 - m01 * m10;
+  num get determinant => m00 * m11 - m01 * m10;
   
   /** Gets whether this [AffineTransform] is the identity transform. */
-  bool get isIdentity() 
+  bool get isIdentity 
       => m00 == 1 && m01 == 0 && m02 == 0
       && m10 == 0 && m11 == 1 && m12 == 0;
   
@@ -46,7 +46,7 @@ class AffineTransform implements Hashable {
    * Gets whether this [AffineTransform] is invertible. A transform is not 
    * invertible if the [determinant] is 0 or any value is non-finite or NaN.
    */
-  bool get isInvertible() {
+  bool get isInvertible {
     final det = determinant;
     return !det.isInfinite() && !det.isNaN() && det != 0
         && !m02.isInfinite() && !m02.isNaN() 
@@ -54,27 +54,27 @@ class AffineTransform implements Hashable {
   }
   
   /** Gets or sets the scale factor in the x-direction (m00). */
-  num get scaleX() => m00;
+  num get scaleX => m00;
       set scaleX(num value) { m00 = value; }
   
   /** Gets or sets the scale factor in the y-direction (m11). */
-  num get scaleY() => m11;
+  num get scaleY => m11;
       set scaleY(num value) { m11 = value; }
   
   /** Gets or sets the shear factor in the x-direction (m01). */
-  num get shearX() => m01;
+  num get shearX => m01;
       set shearX(num value) { m01 = value; }
   
   /** Gets or sets the shear factor in the y-direction (m10). */
-  num get shearY() => m10;
+  num get shearY => m10;
       set shearY(num value) { m10 = value; }
   
   /** Gets or sets the translation in the x-direction (m02). */
-  num get translateX() => m02;
+  num get translateX => m02;
       set translateX(num value) { m02 = value; }
          
   /** Gets or sets the translation in the y-direction (m12). */
-  num get translateY() => m12;
+  num get translateY => m12;
       set translateY(num value) { m12 = value; }  
            
   /** Constructs a new [AffineTransform] with the given matrix elements. */

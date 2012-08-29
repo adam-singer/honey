@@ -35,11 +35,11 @@ class Rectangle implements Hashable {
   num height;
   
   /** Gets or sets the x-coordinate of this [Rectangle]'s right edge. */
-  num get right() => left + width;
+  num get right => left + width;
       set right(num value) { width = value - left; }
   
   /** Gets or sets the y-coordinate of this [Rectangle]'s bottom edge. */
-  num get bottom() => top + height;
+  num get bottom => top + height;
       set bottom(num value) { height = value - top; }
   
   /** 

@@ -212,8 +212,8 @@ class AffineTransform implements Hashable {
    * axis towards the positive y axis.
    */
   void rotate(num theta) {
-    final sin = Math.sin(theta);
-    final cos = Math.cos(theta);
+    final sin = sin(theta);
+    final cos = cos(theta);
     _multiply(this.m00, this.m10, this.m01, this.m11, this.m02, this.m12,
         cos, sin, -sin, cos, 0.0, 0.0, this);
   }
@@ -235,8 +235,8 @@ class AffineTransform implements Hashable {
    *  [ 0           0           1                                             ]
    */
   void rotateAnchor(num theta, num anchorX, num anchorY) {
-    final sin = Math.sin(theta);
-    final cos = Math.cos(theta);
+    final sin = sin(theta);
+    final cos = cos(theta);
     final dx = anchorX - (anchorX * cos) + (anchorY * sin);
     final dy = anchorY - (anchorX * sin) - (anchorY * cos);
     _multiply(this.m00, this.m10, this.m01, this.m11, this.m02, this.m12,

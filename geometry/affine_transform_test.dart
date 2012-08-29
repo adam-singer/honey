@@ -51,7 +51,7 @@ void testIdentityConstructor() {
 
 void testInverseOfConstructor() {
   var tx = new AffineTransform.scale(2, 3)
-      ..translate(5, 10)..rotateAnchor(Math.PI / 4, 5, 10);
+      ..translate(5, 10)..rotateAnchor(PI / 4, 5, 10);
   var iv = new AffineTransform.inverseOf(tx);
   expect(iv.m00, closeTo(0.353553390, tolerance));  
   expect(iv.m10, closeTo(-0.353553390, tolerance));  
@@ -62,7 +62,7 @@ void testInverseOfConstructor() {
 }
 
 void testRotateConstructor() {
-  var tx = new AffineTransform.rotate(Math.PI / 2);  
+  var tx = new AffineTransform.rotate(PI / 2);  
   expect(tx.m00, closeTo(0, tolerance));
   expect(tx.m10, closeTo(1, tolerance));
   expect(tx.m01, closeTo(-1, tolerance));
@@ -72,7 +72,7 @@ void testRotateConstructor() {
 }
 
 void testRotateAnchorConstructor() {
-  var tx = new AffineTransform.rotateAnchor(Math.PI / 2, 1, 2);  
+  var tx = new AffineTransform.rotateAnchor(PI / 2, 1, 2);  
   expect(tx.m00, closeTo(0, tolerance));
   expect(tx.m10, closeTo(1, tolerance));
   expect(tx.m01, closeTo(-1, tolerance));
@@ -141,7 +141,7 @@ void testScaleShearTranslateFactors() {
 }
 
 void testRotate() {
-  var tx = new AffineTransform(1, 2, 3, 4, 5, 6)..rotate(Math.PI / 2);
+  var tx = new AffineTransform(1, 2, 3, 4, 5, 6)..rotate(PI / 2);
   expect(tx.m00, closeTo(3, tolerance));
   expect(tx.m10, closeTo(4, tolerance));
   expect(tx.m01, closeTo(-1, tolerance));
@@ -152,7 +152,7 @@ void testRotate() {
 
 void testRotateAnchor() {
   var tx = new AffineTransform(1, 2, 3, 4, 5, 6)
-      ..rotateAnchor(Math.PI / 2, 1, 1);
+      ..rotateAnchor(PI / 2, 1, 1);
   expect(tx.m00, closeTo(3, tolerance));
   expect(tx.m10, closeTo(4, tolerance));
   expect(tx.m01, closeTo(-1, tolerance));
@@ -240,7 +240,7 @@ void testTransform() {
   var srcPts = [0, 0, 1, 0, 1, 1, 0, 1];
   var dstPts = new List(8);
   AffineTransform tx = new AffineTransform.scale(2, 3)
-      ..translate(5, 10)..rotateAnchor(Math.PI / 4, 5, 10);
+      ..translate(5, 10)..rotateAnchor(PI / 4, 5, 10);
   tx.transform(srcPts, 0, dstPts, 0, 4);
   expect(dstPts[0], closeTo(27.071067811, tolerance));
   expect(dstPts[1], closeTo(28.180194846, tolerance));
@@ -281,7 +281,7 @@ void testLerpTo() {
 
 void testDeterminant() {
   var tx = new AffineTransform.scale(2, 3)
-      ..translate(5, 10)..rotateAnchor(Math.PI / 4, 5, 10);
+      ..translate(5, 10)..rotateAnchor(PI / 4, 5, 10);
   expect(tx.determinant, equals(6));
 }
 

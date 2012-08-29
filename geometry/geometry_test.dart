@@ -3,6 +3,7 @@
 
 #import('file:///c:/dart/dart-sdk/pkg/unittest/unittest.dart');
 
+#import('dart:math');
 #import('geometry.dart');
 
 #source('affine_transform_test.dart');

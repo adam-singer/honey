@@ -11,7 +11,7 @@ class Vector2 implements Hashable {
   num y;
   
   /** Calculates the length of the vector. */
-  num get length() => Math.sqrt(x * x + y * y);
+  num get length() => sqrt(x * x + y * y);
   
   /** Calculates the length of the vector squared. */
   num get lengthSquared() => (x * x + y * y);
@@ -40,7 +40,7 @@ class Vector2 implements Hashable {
   {
     final dx = x - other.x;
     final dy = y - other.y;
-    return Math.sqrt(dx * dx + dy * dy);
+    return sqrt(dx * dx + dy * dy);
   }
   
   /**

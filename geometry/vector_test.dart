@@ -23,13 +23,13 @@ void testNormalize() {
   var v = new Vector2(3.14, 3.14); // y = x
   v.normalize();
   expect(v.length, closeTo(1.0, tolerance));
-  expect(v.x, closeTo(Math.sqrt(0.5), tolerance));
-  expect(v.y, closeTo(Math.sqrt(0.5), tolerance));
+  expect(v.x, closeTo(sqrt(0.5), tolerance));
+  expect(v.y, closeTo(sqrt(0.5), tolerance));
   var v2 = new Vector2(1.12345, 2.2469); // y = 2 * x
   v2.normalize();
   expect(v2.length, closeTo(1.0, tolerance));
-  expect(v2.x, closeTo(Math.sqrt(0.2), tolerance));
-  expect(v2.y, closeTo(2*Math.sqrt(0.2), tolerance));
+  expect(v2.x, closeTo(sqrt(0.2), tolerance));
+  expect(v2.y, closeTo(2*sqrt(0.2), tolerance));
 }
 
 void testVector2Equals() {

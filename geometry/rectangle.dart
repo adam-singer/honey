@@ -22,23 +22,23 @@
  */
 class Rectangle implements Hashable {
   
-  /** Gets or sets the x-coordinate of this [Rectangle]'s left edge. */
+  /// Gets or sets the x-coordinate of this [Rectangle]'s left edge.
   num left;
   
-  /** Gets or sets the y-coordinate of this [Rectangle]'s top edge. */
+  /// Gets or sets the y-coordinate of this [Rectangle]'s top edge.
   num top;
   
-  /** Gets or sets the width of this [Rectangle]. */
+  /// Gets or sets the width of this [Rectangle].
   num width;
   
-  /** Gets or sets the height of this [Rectangle]. */
+  /// Gets or sets the height of this [Rectangle].
   num height;
   
-  /** Gets or sets the x-coordinate of this [Rectangle]'s right edge. */
+  /// Gets or sets the x-coordinate of this [Rectangle]'s right edge.
   num get right => left + width;
       set right(num value) { width = value - left; }
   
-  /** Gets or sets the y-coordinate of this [Rectangle]'s bottom edge. */
+  /// Gets or sets the y-coordinate of this [Rectangle]'s bottom edge.
   num get bottom => top + height;
       set bottom(num value) { height = value - top; }
   

@@ -4,16 +4,16 @@
  */
 class Vector2 implements Hashable {
   
-  /** Ges or sets the x-component of the vector. */
+  /// Gets or sets the x-component of the vector.
   num x;
   
-  /** Gets or sets the y-component of the vector. */
+  /// Gets or sets the y-component of the vector.
   num y;
   
-  /** Calculates the length of the vector. */
+  /// Calculates the length of the vector.
   num get length => sqrt(x * x + y * y);
   
-  /** Calculates the length of the vector squared. */
+  /// Calculates the length of the vector squared.
   num get lengthSquared => (x * x + y * y);
   
   Vector2(this.x, this.y);
@@ -35,7 +35,7 @@ class Vector2 implements Hashable {
   
   int hashCode() => x.hashCode() ^ y.hashCode();
   
-  /** Calculates the distance between [this] vector and the given [other]. */
+  /// Calculates the distance between [this] vector and the given [other].
   num distance(Vector2 other)
   {
     final dx = x - other.x;
@@ -56,10 +56,10 @@ class Vector2 implements Hashable {
     result.y = y + (amount * (other.y - y));
   }
   
-  /** Normalizes this vector in place. */
+  /// Normalizes this vector in place.
   void normalize() => normalizeTo(this);
   
-  /** Normalizes this vector into [result]. */
+  /// Normalizes this vector into [result].
   void normalizeTo(Vector2 result) {
     final len = length;
     assert(len > 0);    

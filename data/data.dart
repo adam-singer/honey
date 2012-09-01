@@ -36,10 +36,9 @@ class Data implements Hashable, Map<String, Dynamic> {
     _parseMap(_properties);
   }
       
-  // TODO: per spec this will have builtin checks that other is not null
   bool operator ==(Object other) {
     if(this === other) return true;
-    if(null === other || !(other is Data)) return false;    
+    if(other is! Data) return false;    
     final Data otherData = other;
     if(length != otherData.length) return false;
     // two empty and different Data objects are not equal

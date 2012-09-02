@@ -4,11 +4,11 @@ void testAffineTransform() {
     test('testCopyOfConstructor', testCopyOfConstructor);
     test('testIdentityConstructor', testIdentityConstructor);
     test('testInverseOfConstructor', testInverseOfConstructor);
-    test('testRotateConstructor', testRotateConstructor);
-    test('testRotateAnchorConstructor', testRotateAnchorConstructor);
-    test('testScaleConstructor', testScaleConstructor);
-    test('testShearConstructor', testShearConstructor);
-    test('testTranslateConstructor', testTranslateConstructor);
+    test('testRotationConstructor', testRotationConstructor);
+    test('testRotationAnchorConstructor', testRotationAnchorConstructor);
+    test('testScalingConstructor', testScalingConstructor);
+    test('testShearingConstructor', testShearingConstructor);
+    test('testTranslationConstructor', testTranslationConstructor);
     test('testSetToIdentity', testSetToIdentity);
     test('testScaleShearTranslateFactors', testScaleShearTranslateFactors);
     test('testRotate', testRotate);
@@ -50,7 +50,7 @@ void testIdentityConstructor() {
 }
 
 void testInverseOfConstructor() {
-  var tx = new AffineTransform.scale(2, 3)
+  var tx = new AffineTransform.scaling(2, 3)
       ..translate(5, 10)..rotateAnchor(PI / 4, 5, 10);
   var iv = new AffineTransform.inverseOf(tx);
   expect(iv.m00, closeTo(0.353553390, tolerance));  
@@ -61,8 +61,8 @@ void testInverseOfConstructor() {
   expect(iv.m12, closeTo(2.928932188, tolerance));
 }
 
-void testRotateConstructor() {
-  var tx = new AffineTransform.rotate(PI / 2);  
+void testRotationConstructor() {
+  var tx = new AffineTransform.rotation(PI / 2);  
   expect(tx.m00, closeTo(0, tolerance));
   expect(tx.m10, closeTo(1, tolerance));
   expect(tx.m01, closeTo(-1, tolerance));
@@ -71,8 +71,8 @@ void testRotateConstructor() {
   expect(tx.m12, closeTo(0, tolerance));
 }
 
-void testRotateAnchorConstructor() {
-  var tx = new AffineTransform.rotateAnchor(PI / 2, 1, 2);  
+void testRotationAnchorConstructor() {
+  var tx = new AffineTransform.rotationAnchor(PI / 2, 1, 2);  
   expect(tx.m00, closeTo(0, tolerance));
   expect(tx.m10, closeTo(1, tolerance));
   expect(tx.m01, closeTo(-1, tolerance));
@@ -81,8 +81,8 @@ void testRotateAnchorConstructor() {
   expect(tx.m12, closeTo(1, tolerance));
 }
 
-void testScaleConstructor() {
-  var tx = new AffineTransform.scale(2, 4);
+void testScalingConstructor() {
+  var tx = new AffineTransform.scaling(2, 4);
   expect(tx.m00, equals(2));
   expect(tx.m10, equals(0));
   expect(tx.m01, equals(0));
@@ -91,8 +91,8 @@ void testScaleConstructor() {
   expect(tx.m12, equals(0));
 }
 
-void testShearConstructor() {
-  var tx = new AffineTransform.shear(2, 4);
+void testShearingConstructor() {
+  var tx = new AffineTransform.shearing(2, 4);
   expect(tx.m00, equals(1));
   expect(tx.m10, equals(4));
   expect(tx.m01, equals(2));
@@ -101,8 +101,8 @@ void testShearConstructor() {
   expect(tx.m12, equals(0));
 }
 
-void testTranslateConstructor() {
-  var tx = new AffineTransform.translate(2, 4);
+void testTranslationConstructor() {
+  var tx = new AffineTransform.translation(2, 4);
   expect(tx.m00, equals(1));
   expect(tx.m10, equals(0));
   expect(tx.m01, equals(0));
@@ -239,7 +239,7 @@ void testAssociativeConcatenate() {
 void testTransform() {
   var srcPts = [0, 0, 1, 0, 1, 1, 0, 1];
   var dstPts = new List(8);
-  AffineTransform tx = new AffineTransform.scale(2, 3)
+  AffineTransform tx = new AffineTransform.scaling(2, 3)
       ..translate(5, 10)..rotateAnchor(PI / 4, 5, 10);
   tx.transform(srcPts, 0, dstPts, 0, 4);
   expect(dstPts[0], closeTo(27.071067811, tolerance));
@@ -280,7 +280,7 @@ void testLerpTo() {
 }
 
 void testDeterminant() {
-  var tx = new AffineTransform.scale(2, 3)
+  var tx = new AffineTransform.scaling(2, 3)
       ..translate(5, 10)..rotateAnchor(PI / 4, 5, 10);
   expect(tx.determinant, equals(6));
 }

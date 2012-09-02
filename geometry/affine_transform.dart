@@ -101,7 +101,7 @@ class AffineTransform implements Hashable {
    * Constructs a new [AffineTransform] representing a rotation transformation
    * with the given [theta] as the angle of rotation in radians.
    */
-  factory AffineTransform.rotate(num theta)
+  factory AffineTransform.rotation(num theta)
       => new AffineTransform.identity()..rotate(theta);
   
   /**
@@ -109,28 +109,28 @@ class AffineTransform implements Hashable {
    * with the given [theta] as the angle of rotation in radians, around the 
    * given anchor point coordinates.
    */
-  factory AffineTransform.rotateAnchor(num theta, num anchorX, num anchorY) 
+  factory AffineTransform.rotationAnchor(num theta, num anchorX, num anchorY) 
       => new AffineTransform.identity()..rotateAnchor(theta, anchorX, anchorY);
   
   /**
    * Constructs a new [AffineTransform] representing a scaling transformation
    * with the given scale factors.
    */
-  AffineTransform.scale(num scaleX, num scaleY) 
+  AffineTransform.scaling(num scaleX, num scaleY) 
       : this(scaleX, 0.0, 0.0, scaleY, 0.0, 0.0); 
   
   /** 
    * Constructs a new [AffineTransform] representing a shearing transformation
    * with the given shear factors.
    */
-  AffineTransform.shear(num shearX, num shearY) 
+  AffineTransform.shearing(num shearX, num shearY) 
       : this(1.0, shearY, shearX, 1.0, 0.0, 0.0);
   
   /**
    * Constructs a new [AffineTransform] representing a translation
    * transformation with the given translation distances.
    */
-  AffineTransform.translate(num translateX, num translateY) 
+  AffineTransform.translation(num translateX, num translateY) 
       : this(1.0, 0.0, 0.0, 1.0, translateX, translateY);
   
   bool operator ==(Object other) {

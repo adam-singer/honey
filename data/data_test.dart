@@ -13,7 +13,6 @@ class Foo extends Data {
   Foo()
   : super() {
     this['l'] = new List<Bar>();
-    this['b'] = new Bar(0);
   }
 }
 

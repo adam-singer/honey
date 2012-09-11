@@ -9,35 +9,18 @@ void main() {
   testData();
 }
 
-class Foo extends Data {    
-  // TODO: this boilerplate is not necessary other than to appease the static checker :S
-  int get x => this['x'];
-  set x(value) { this['x'] = value; }
-  String get y => this['y'];
-  set y(value) { this['y'] = value; }
-  List<Bar> get l => this['l'];
-  set l(value) { this['l'] = value; }
-  // TODO: throws in checked mode if I use Bar, not sure how to resolve..
-  // HMMM well the resolution might be if Data implements HasTypeId, and then we serialize the typeId
-  // to the JSON.  On a deserialize, we use a DataFactory to construct the Data.
-  // that sounds too complicated, better to embrace the Dynamic nature of this I think..
-  Dynamic/*Bar*/ get b => this['b']; 
-  set b(value) { this['b'] = value; }
-  
+class Foo extends Data {
   Foo()
   : super() {
-    l = new List<Bar>();
-    b = new Bar(0);
+    this['l'] = new List<Bar>();
+    this['b'] = new Bar(0);
   }
 }
 
-class Bar extends Data {  
-  int get n => this['n'];
-  set n(value) { this['n'] = value; }
-  
+class Bar extends Data {
   Bar(int n)
   : super() {
-    this.n = n;
+    this['n'] = n;
   }
 }
 

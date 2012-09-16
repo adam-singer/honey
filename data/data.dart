@@ -25,14 +25,14 @@ class Data implements Hashable, Map<String, Dynamic> {
   Data() : this._fromMap(new Map<String, Dynamic>());
   
   Data._fromMap(this._properties)
-  : adding = new Happening<String>()
-  , added = new Happening<String>()
-  , changing = new Happening<String>()
-  , changed = new Happening<String>() 
-  , removing = new Happening<String>()
-  , removed = new Happening<String>()
-  , resetting = new Happening()
-  , reset = new Happening() {
+      : adding = new Happening<String>()
+      , added = new Happening<String>()
+      , changing = new Happening<String>()
+      , changed = new Happening<String>() 
+      , removing = new Happening<String>()
+      , removed = new Happening<String>()
+      , resetting = new Happening()
+      , reset = new Happening() {
     _parseMap(_properties);
   }
       

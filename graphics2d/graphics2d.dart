@@ -21,16 +21,16 @@ class Color {
   }
 }
 
-interface Drawable2d {
+abstract class Drawable2d {
   void draw(Graphics2d graphics);
 }
 
-interface Draw2dObservable {
+abstract class Draw2dObservable {
   Happening<Graphics2d> get drawing;
   Happening<Graphics2d> get drawn;
 }
 
-interface Graphics2d {
+abstract class Graphics2d {
   String font;
   num globalAlpha;
   
@@ -61,7 +61,7 @@ interface Graphics2d {
   void transform(AffineTransform t);
 }
 
-interface Image {
+abstract class Image {
   int get height;
   int get width;
 }

@@ -4,11 +4,11 @@
 
 #source('quadtree.dart');
 
-interface HasRectangle {
+abstract class HasRectangle {
   Rectangle get rectangle;
 }
 
-interface QuadSpace<T extends HasRectangle> extends HasRectangle {
+abstract class QuadSpace<T extends HasRectangle> implements HasRectangle {
   int get count;
   
   void add(T item);

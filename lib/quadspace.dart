@@ -2,7 +2,7 @@
 
 #import('package:honey/geometry.dart');
 
-#source('src/quadtree.dart');
+#source('src/quadspace/quadtree.dart');
 
 abstract class HasRectangle {
   Rectangle get rectangle;

@@ -1,9 +1,8 @@
 
 #library('honey:happening:test');
 
-#import('file:///c:/dart/dart-sdk/pkg/unittest/unittest.dart');
-
-#import('happening.dart');
+#import('package:unittest/unittest.dart');
+#import('package:honey/happening.dart');
 
 void main() {
   testHappening();

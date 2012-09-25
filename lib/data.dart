@@ -2,7 +2,7 @@
 #library('honey:data');
 
 #import('dart:json');
-#import('../happening/happening.dart');
+#import('package:honey/happening.dart');
 
 /**
  * An observable [Data] object that is essentially a property bag.  [Data] can

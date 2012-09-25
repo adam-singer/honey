@@ -2,8 +2,8 @@
 #library('honey:graphics2d:html');
 
 #import('dart:html');
-#import('graphics2d.dart');
-#import('../geometry/geometry.dart');
+#import('package:honey/geometry.dart');
+#import('package:honey/graphics2d.dart');
 
 class CanvasGraphics2d implements Graphics2d {
   

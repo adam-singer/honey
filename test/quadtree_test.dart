@@ -3,8 +3,8 @@
 
 #import('file:///c:/dart/dart-sdk/pkg/unittest/unittest.dart');
 
-#import('quadspace.dart');
-#import('../geometry/geometry.dart');
+#import('package:honey/geometry.dart');
+#import('package:honey/quadspace.dart');
 
 void main() {
   testQuadTree();

@@ -1,8 +1,8 @@
 
 #library('honey:quadtree:drawable');
 
-#import('quadspace.dart');
-#import('../graphics2d/graphics2d.dart');
+#import('package:honey/graphics2d.dart');
+#import('package:honey/quadspace.dart');
 
 class QuadTreeDrawable implements Drawable2d {
   

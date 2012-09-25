@@ -1,0 +1,4 @@
+name: honey
+description: a bundle of joy
+dependencies:
+  unittest: { sdk: unittest }

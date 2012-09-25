@@ -2,8 +2,8 @@
 #library('honey:graphics2d');
 
 #import('dart:math');
-#import('../happening/happening.dart');
-#import('../geometry/geometry.dart');
+#import('package:honey/geometry.dart');
+#import('package:honey/happening.dart');
 
 class Color {
   // TODO: getters and setters to wrap validation [0:1] ranges

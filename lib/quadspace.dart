@@ -1,8 +1,8 @@
 #library('honey:quadspace');
 
-#import('../geometry/geometry.dart');
+#import('package:honey/geometry.dart');
 
-#source('quadtree.dart');
+#source('src/quadtree.dart');
 
 abstract class HasRectangle {
   Rectangle get rectangle;

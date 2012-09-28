@@ -102,12 +102,10 @@ typedef void Observer<T>(T context);
  */
 class Happening<T> {
   
-  // TODO: if and when functions become Hashable, we can change this to a 
-  // HashSet<Observer<T>> and lift the user requirement of passing us a reference
-  final List<Observer<T>> _observers;
+  final HashSet<Observer<T>> _observers;
   
   // TODO: consider lazily allocating this list on first observe
-  Happening() : _observers = new List<Observer<T>>();  
+  Happening() : _observers = new HashSet<Observer<T>>();
   
   /**
    * Notifies all observers that the happening has happened.  A [context] may
@@ -119,24 +117,15 @@ class Happening<T> {
    * Ignores the happening for the given [observer].  Returns [:true:] if the
    * [observer] was observing the happening, else [:false:].
    */
-  bool ignore(Observer<T> observer) { //=> Lists.remove(_observers, observer);  
-    // since there is no List.remove(object) and we don't want this library to
-    // have any dependencies (i.e. on a Lists utilities class) we unroll logic
-    final index = _observers.indexOf(observer);
-    if(index == -1) return false;
-    _observers.removeRange(index, 1);
-    return true;
-  }
+  bool ignore(Observer<T> observer) => _observers.remove(observer);
   
   /**
    * Observes the happening for the given [observer].  Returns [:true:] if the
    * [observer] was not already observing the happening, else [:false:].
    */
   bool observe(Observer<T> observer) {
-    if(_observers.indexOf(observer) == -1) {
-      _observers.add(observer);
-      return true;
-    }
-    return false;
+    if(_observers.contains(observer)) return false;
+    _observers.add(observer);
+    return true;
   }
 }

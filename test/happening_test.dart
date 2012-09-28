@@ -11,6 +11,7 @@ void main() {
 void testHappening() { 
   group('testHappening', () {
     test('testObserveIgnoreSuccess', testObserveIgnoreSuccess);  
+    test('testObserveIgnoreNoReferenceSuccess', testObserveIgnoreNoReferenceSuccess);
     test('testIgnoreUnobservedReturnsFalse', testIgnoreUnobservedReturnsFalse);
     test('testObserveTwiceReturnsFalse', testObserveTwiceReturnsFalse);
     test('testSingleObserverSingleHappening', testSingleObserverSingleHappening);
@@ -20,11 +21,23 @@ void testHappening() {
   });
 }
 
+class MockObservingObject {
+  void observe(ignored) { }
+}
+
 void testObserveIgnoreSuccess() {  
   Observer observer = (value) {};
   Happening happeningUUT = new Happening();  
   expect(happeningUUT.observe(observer), isTrue);
   expect(happeningUUT.ignore(observer), isTrue);  
+}
+
+/// This test relies on / validates Functions being Hashable
+void testObserveIgnoreNoReferenceSuccess() {
+  var observer = new MockObservingObject();
+  Happening happeningUUT = new Happening();  
+  expect(happeningUUT.observe(observer.observe), isTrue);
+  expect(happeningUUT.ignore(observer.observe), isTrue);
 }
 
 void testIgnoreUnobservedReturnsFalse() {

@@ -9,7 +9,7 @@
  * be serialized to and from JSON, and properties may be added or removed at
  * any time.  
  */
-class Data implements Hashable, Map<String, Dynamic> {
+class Data implements Map<String, Dynamic> {
   
   Map<String, Dynamic> _properties;
   

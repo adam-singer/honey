@@ -1,6 +1,6 @@
 #library('honey:quadspace');
 
-#import('package:honey/geometry.dart');
+#import('package:affinity/affinity.dart');
 
 #source('src/quadspace/quadtree.dart');
 

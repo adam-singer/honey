@@ -1,4 +1,6 @@
 name: honey
 description: a bundle of joy
 dependencies:
+  affinity:
+    git: https://github.com/rmsmith/affinity.git
   unittest: { sdk: unittest }

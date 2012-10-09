@@ -1,9 +1,8 @@
 
 #library('honey:quadtree:test');
 
-#import('file:///c:/dart/dart-sdk/pkg/unittest/unittest.dart');
-
-#import('package:honey/geometry.dart');
+#import('package:unittest/unittest.dart');
+#import('package:affinity/affinity.dart');
 #import('package:honey/quadspace.dart');
 
 void main() {

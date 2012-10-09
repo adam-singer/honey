@@ -2,7 +2,7 @@
 #library('honey:graphics2d');
 
 #import('dart:math');
-#import('package:honey/geometry.dart');
+#import('package:affinity/affinity.dart');
 #import('package:honey/happening.dart');
 
 class Color {

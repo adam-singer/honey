@@ -32,7 +32,8 @@ void testObserveIgnoreSuccess() {
   expect(happeningUUT.ignore(observer), isTrue);  
 }
 
-/// This test relies on / validates Functions being Hashable
+// This test relies on / validates that multiple anonymous Closures over the
+// same method of the same object hash to the same value (currently fails)
 void testObserveIgnoreNoReferenceSuccess() {
   var observer = new MockObservingObject();
   Happening happeningUUT = new Happening();  

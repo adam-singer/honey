@@ -11,8 +11,8 @@ class QuadTreeDrawable implements Drawable2d {
   final Color _borderColor;
   
   QuadTreeDrawable(this._tree)
-  : _itemColor = new Color(0, 0, 1, 0.2)
-  , _borderColor = new Color(0.8, 0.8, 0.8, 1);
+  : _itemColor = new Color(0, 0, 255, 0.2)
+  , _borderColor = new Color(200, 200, 200, 1);
   
   void draw(Graphics2d graphics) {
     graphics.save();

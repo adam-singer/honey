@@ -7,17 +7,17 @@
 
 class Color {
   // TODO: getters and setters to wrap validation [0:1] ranges
-  num r;
-  num g;
-  num b;
+  int r;
+  int g;
+  int b;
   num a;
-  Color(this.r, num this.g, num this.b,[num this.a = 1.0]);
+  Color(this.r, this.g, this.b,[this.a = 1.0]);
   Color.random()
   : this.a = 1.0 {
     var rand = new Random();
-    r = rand.nextDouble();
-    g = rand.nextDouble();
-    b = rand.nextDouble();
+    r = rand.nextInt(256);
+    g = rand.nextInt(256);
+    b = rand.nextInt(256);
   }
 }
 

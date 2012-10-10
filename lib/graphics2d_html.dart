@@ -68,10 +68,10 @@ class CanvasGraphics2d implements Graphics2d {
   void scale(num sx, num sy) => _context2d.scale(sx, sy);
   
   void setFillColor(Color color) 
-      => _context2d.setFillColor(color.r, color.g, color.b, color.a);
+      => _context2d.setFillColorRgb(color.r, color.g, color.b, color.a);
   
   void setStrokeColor(Color color) 
-      => _context2d.setStrokeColor(color.r, color.g, color.b, color.a);
+      => _context2d.setStrokeColorRgb(color.r, color.g, color.b, color.a);
   
   /**
    * Context2d specifies the transformation matrix as follows

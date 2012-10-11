@@ -1,4 +1,6 @@
 
+// TODO: this should no longer be a library, but rather a part
+// of a standalone example application (that builds and renders a quadtree!)
 #library('honey:quadtree:drawable');
 
 #import('package:honey/graphics2d.dart');

@@ -34,12 +34,12 @@ class QuadTree<T extends HasRectangle> implements QuadSpace<T> {
   : this._rectangle = rectangle
   , _root = new QuadTreeNode._full(rectangle, minWidth, minHeight);
   
-  void add(T item) => _root.add(item);
-  void forEach(void f(QuadTreeNode<T> node)) => _root.forEach(f);
+  void add(T item) => _root.add(item);  
   void query(Rectangle queryRect, void f(T item)) => _root.query(queryRect, f);
   void queryToList(Rectangle queryRect, List<T> matches) 
       => query(queryRect, (item) => matches.add(item));
   bool remove(T item) => _root.remove(item);
+  void visit(void f(QuadTreeNode<T> node)) => _root.visit(f);
 }
 
 /// Represents a node of type [T] in a [QuadTree].
@@ -60,12 +60,12 @@ class QuadTreeNode<T extends HasRectangle> implements HasRectangle {
   }
     
   QuadTreeNode._lazy(this._rectangle, this._minWidth, this._minHeight) 
-  : _items = new List<T>()
-  , _nodes = new List<QuadTreeNode<T>>();
+      : _items = new List<T>()
+      , _nodes = new List<QuadTreeNode<T>>();
     
   QuadTreeNode._full(this._rectangle, this._minWidth, this._minHeight) 
-  : _items = new List<T>()
-  , _nodes = new List<QuadTreeNode<T>>() {
+      : _items = new List<T>()
+      , _nodes = new List<QuadTreeNode<T>>() {
     num halfWidth = _rectangle.width / 2;
     num halfHeight = _rectangle.height / 2;
     if((halfWidth >= _minWidth) && (halfHeight >= _minHeight)) {
@@ -126,6 +126,8 @@ class QuadTreeNode<T extends HasRectangle> implements HasRectangle {
     _items.add(item);
   }
   
+  void forEach(void f(T item)) => _items.forEach(f);
+  
   // this method does not free up empty subnodes for gc intentionally, 
   // we don't want to churn the heap
   bool remove(T item) {
@@ -173,7 +175,7 @@ class QuadTreeNode<T extends HasRectangle> implements HasRectangle {
       // all of the items of that subnode (recursively) to the results.
       // we need to continue the loop still to test the other subnodes.
       if(queryRect.contains(node.rectangle)) {
-        node.forEach((n) {
+        node.visit((n) {
           n._items.forEach((item) { f(item); });
         });
         continue;
@@ -187,8 +189,8 @@ class QuadTreeNode<T extends HasRectangle> implements HasRectangle {
     }
   }
     
-  void forEach(void f(QuadTreeNode<T> node)) {
+  void visit(void f(QuadTreeNode<T> node)) {
     f(this);    
-    _nodes.forEach((node) => node.forEach(f));
-  }
+    _nodes.forEach((node) => node.visit(f));
+  }  
 }

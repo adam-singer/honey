@@ -1,11 +1,4 @@
 
-// TODO: this should no longer be a library, but rather a part
-// of a standalone example application (that builds and renders a quadtree!)
-#library('honey:quadtree:drawable');
-
-#import('package:honey/graphics2d.dart');
-#import('package:honey/quadspace.dart');
-
 class QuadTreeDrawable implements Drawable2d {
   
   final QuadTree _tree;
@@ -19,10 +12,10 @@ class QuadTreeDrawable implements Drawable2d {
   void draw(Graphics2d graphics) {
     graphics.save();
     
-    _tree.forEach((node) {
+    _tree.visit((node) {
    
       // draw the items of the node
-      node._items.forEach((item) {
+      node.forEach((item) {
         graphics.setFillColor(_itemColor);
         graphics.fillRectangle(item.rectangle);        
       });

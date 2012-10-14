@@ -104,7 +104,7 @@ class Happening<T> {
   
   final HashSet<Observer<T>> _observers;
   
-  // TODO: consider lazily allocating this list on first observe
+  // TODO: consider lazily allocating this on first observe
   Happening() : _observers = new HashSet<Observer<T>>();
   
   /**

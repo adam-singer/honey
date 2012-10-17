@@ -3,4 +3,5 @@ description: a bundle of joy
 dependencies:
   affinity:
     git: https://github.com/rmsmith/affinity.git
-  unittest: { sdk: unittest }
+  unittest:
+    sdk: unittest

@@ -69,7 +69,7 @@ class Data implements Map<String, Dynamic> {
     }
   }
   
-  int hashCode() {
+  int get hashCode {
     // TODO: investigate using a Jenkins hash instead as described in this forum thread:
     // https://groups.google.com/a/dartlang.org/group/misc/browse_thread/thread/bcefaa5674a73819/7f19db1217011a51#7f19db1217011a51
     int result = 17;
@@ -91,7 +91,7 @@ class Data implements Map<String, Dynamic> {
         result = 37 * result + (value ? 0 : 1);
       }      
       else { // num, String, Data are all Hashable
-        result = 37 * result + value.hashCode();
+        result = 37 * result + value.hashCode;
       }
     }
     return result;
@@ -104,7 +104,7 @@ class Data implements Map<String, Dynamic> {
   forEach(void f(key,value)) => _properties.forEach(f);
   Collection getKeys() => _properties.getKeys();
   Collection getValues() => _properties.getValues();  
-  bool isEmpty() => _properties.isEmpty();
+  bool get isEmpty => _properties.isEmpty;
   
   operator []=(key,value) {
     if(containsKey(key)) {

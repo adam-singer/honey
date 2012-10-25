@@ -51,7 +51,7 @@ class QuadTreeNode<T extends HasRectangle> implements HasRectangle {
   final List<T> _items;
         
   Rectangle get rectangle => _rectangle;  
-  bool get isLeaf => _nodes.isEmpty();
+  bool get isLeaf => _nodes.isEmpty;
   
   int get countRecursive {
     int count = _items.length;

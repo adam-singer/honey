@@ -104,7 +104,7 @@ void testSymmetricBarEquals() {
   expect(y, equals(x));
   expect(x, isNot(equals(z)));
   expect(z, isNot(equals(x)));
-  expect(x.hashCode(), equals(y.hashCode()));
+  expect(x.hashCode, equals(y.hashCode));
 }
 
 void testTransitiveBarEquals() {
@@ -114,9 +114,9 @@ void testTransitiveBarEquals() {
   expect(x, equals(y));
   expect(y, equals(z));
   expect(x, equals(z));
-  expect(x.hashCode(), equals(y.hashCode()));
-  expect(y.hashCode(), equals(z.hashCode()));
-  expect(x.hashCode(), equals(z.hashCode()));
+  expect(x.hashCode, equals(y.hashCode));
+  expect(y.hashCode, equals(z.hashCode));
+  expect(x.hashCode, equals(z.hashCode));
 }
 
 void testBarNotEqualsNull() {
@@ -157,7 +157,7 @@ void testSymmetricFooEquals() {
   expect(y, equals(x));
   expect(x, isNot(equals(z)));
   expect(z, isNot(equals(x)));
-  expect(x.hashCode(), equals(y.hashCode()));
+  expect(x.hashCode, equals(y.hashCode));
 }
 
 void testTransitiveFooEquals() {
@@ -182,9 +182,9 @@ void testTransitiveFooEquals() {
   expect(x, equals(y));
   expect(y, equals(z));
   expect(x, equals(z));
-  expect(x.hashCode(), equals(y.hashCode()));
-  expect(y.hashCode(), equals(z.hashCode()));
-  expect(x.hashCode(), equals(z.hashCode()));
+  expect(x.hashCode, equals(y.hashCode));
+  expect(y.hashCode, equals(z.hashCode));
+  expect(x.hashCode, equals(z.hashCode));
 }
 
 void testFooNotEqualsNull() {
@@ -321,7 +321,7 @@ void testMapRemove() {
   data.remove('b');
   expect(data.containsKey('a'), isFalse);
   expect(data.containsKey('b'), isFalse);
-  expect(data.isEmpty(), isTrue);
+  expect(data.isEmpty, isTrue);
   expect(removingCount, equals(2));
   expect(removedCount, equals(2));
 }
@@ -341,7 +341,7 @@ void testMapClear() {
   data.clear();
   expect(data.containsKey('a'), isFalse);
   expect(data.containsKey('b'), isFalse);
-  expect(data.isEmpty(), isTrue);
+  expect(data.isEmpty, isTrue);
   expect(resettingCount, equals(1));
   expect(resetCount, equals(1));
 }

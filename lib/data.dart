@@ -9,9 +9,9 @@
  * be serialized to and from JSON, and properties may be added or removed at
  * any time.  
  */
-class Data implements Map<String, Dynamic> {
+class Data implements Map<String, dynamic> {
   
-  Map<String, Dynamic> _properties;
+  Map<String, dynamic> _properties;
   
   final Happening<String> adding;
   final Happening<String> added;  
@@ -22,7 +22,7 @@ class Data implements Map<String, Dynamic> {
   final Happening resetting;
   final Happening reset;
   
-  Data() : this._fromMap(new Map<String, Dynamic>());
+  Data() : this._fromMap(new Map<String, dynamic>());
   
   Data._fromMap(this._properties)
       : adding = new Happening<String>()
@@ -46,7 +46,7 @@ class Data implements Map<String, Dynamic> {
     // TODO: I don't like that this allocates a new Collection
     // TODO: we should probably use forEach(f) even though we can't break the loop... :(
     // as suggested by Christopher Wright, we could throw an Exception to break !?!
-    Collection keys = _properties.getKeys();
+    Collection keys = _properties.keys;
     for(String k in keys) {
       if(!otherData.containsKey(k)) return false;
       if(!_buildEquals(_properties[k], otherData[k])) return false;     
@@ -54,7 +54,7 @@ class Data implements Map<String, Dynamic> {
     return true;
   }
   
-  bool _buildEquals(Dynamic value, Dynamic otherValue) {
+  bool _buildEquals(dynamic value, dynamic otherValue) {
     if(value is List) {
       if(!(otherValue is List)) return false;
       var list = value;        
@@ -79,7 +79,7 @@ class Data implements Map<String, Dynamic> {
     return result;
   }
   
-  int _buildHash(Dynamic value, int result) {
+  int _buildHash(dynamic value, int result) {
     if(value != null) {
       if(value is List) {
         var list = value;
@@ -102,8 +102,8 @@ class Data implements Map<String, Dynamic> {
   bool containsKey(key) => _properties.containsKey(key);
   bool containsValue(value) => _properties.containsValue(value);  
   forEach(void f(key,value)) => _properties.forEach(f);
-  Collection getKeys() => _properties.getKeys();
-  Collection getValues() => _properties.getValues();  
+  Collection get keys => _properties.keys;
+  Collection get values => _properties.values;
   bool get isEmpty => _properties.isEmpty;
   
   operator []=(key,value) {

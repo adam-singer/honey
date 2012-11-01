@@ -1,4 +1,6 @@
 
+part of quadspace;
+
 /**
  * Represents a QuadTree of type [T].
  *

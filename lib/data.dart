@@ -1,8 +1,8 @@
 
-#library('honey:data');
+library data;
 
-#import('dart:json');
-#import('package:honey/happening.dart');
+import 'dart:json';
+import 'package:honey/happening.dart';
 
 /**
  * An observable [Data] object that is essentially a property bag.  [Data] can
@@ -139,18 +139,20 @@ class Data implements Map<String, dynamic> {
     return value;
   }
   
-  noSuchMethod(String name, List args) {    
-    if(args.length == 0 && name.startsWith("get:")) {
-      final String propertyName = name.substring(4);
+  noSuchMethod(InvocationMirror invocation) {    
+    if(invocation.positionalArguments.length == 0 
+        && invocation.memberName.startsWith("get:")) {
+      final String propertyName = invocation.memberName.substring(4);
       if(containsKey(propertyName)) {
         return this[propertyName];
       }
-    } else if(args.length == 1 && name.startsWith("set:")) {
-      final String propertyName = name.substring(4);      
-      this[propertyName] = args[0];
+    } else if(invocation.positionalArguments.length == 1 
+        && invocation.memberName.startsWith("set:")) {
+      final String propertyName = invocation.memberName.substring(4);      
+      this[propertyName] = invocation.positionalArguments[0];
       return;
     }
-    super.noSuchMethod(name, args);
+    super.noSuchMethod(invocation);
   }
   
   void fromJson(String s) {    

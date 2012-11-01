@@ -1,9 +1,9 @@
 
-#library('honey:graphics2d');
+library graphics2d;
 
-#import('dart:math');
-#import('package:affinity/affinity.dart');
-#import('package:honey/happening.dart');
+import 'dart:math';
+import 'package:affinity/affinity.dart';
+import 'package:honey/happening.dart';
 
 class Color {
   // TODO: getters and setters to wrap validation [0:1] ranges

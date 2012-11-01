@@ -1,4 +1,6 @@
 
+library quadtree_example;
+
 import 'dart:html';
 import 'package:affinity/affinity.dart';
 import 'package:honey/graphics2d.dart';

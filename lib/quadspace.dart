@@ -1,8 +1,9 @@
-#library('honey:quadspace');
 
-#import('package:affinity/affinity.dart');
+library quadspace;
 
-#source('src/quadspace/quadtree.dart');
+import 'package:affinity/affinity.dart';
+
+part 'src/quadspace/quadtree.dart';
 
 abstract class HasRectangle {
   Rectangle get rectangle;

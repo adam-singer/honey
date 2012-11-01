@@ -1,4 +1,6 @@
 
+part of quadtree_example;
+
 class QuadTreeDrawable implements Drawable2d {
   
   final QuadTree _tree;

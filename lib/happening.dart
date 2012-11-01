@@ -1,5 +1,5 @@
 
-#library('honey:happening');
+library happening;
 
 /**
  * An [Observer] function is used to observe a [Happening] and will be invoked

@@ -1,8 +1,8 @@
 
-#library('honey:data:test');
+library data_test;
 
-#import('package:unittest/unittest.dart');
-#import('package:honey/data.dart');
+import 'package:unittest/unittest.dart';
+import 'package:honey/data.dart';
 
 void main() {
   testData();
